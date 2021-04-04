@@ -4,11 +4,12 @@ const config = require('./config');
 
 const express = require('express');
 
-async function startServer() {
+// only export when running tests
+module.exports = startServer = _ => {
 
   const app = express();
 
-  await loaders(app);
+  loaders(app);
 
   app.listen(config.port, err => {
     if (err) {
@@ -19,4 +20,4 @@ async function startServer() {
   });
 }
 
-startServer();
+// startServer()

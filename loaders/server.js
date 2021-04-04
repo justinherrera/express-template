@@ -1,7 +1,9 @@
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const express = require('express')
 const config = require('../config')
 const routes = require('../api')
+const error = require('../controllers/Error')
 
 module.exports = (app) => {
 
@@ -11,13 +13,14 @@ module.exports = (app) => {
 
   app.use(cors());
   app.use(require('morgan')('dev'));
-  app.use(bodyParser.json());
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }))
 
   // API Routes
   app.use(config.prefix.api, routes())
-  // ... More routes
 
-
+  // Error Controller
+  app.use(error);
 
   // ...More middlewares
 

@@ -1,14 +1,25 @@
 /* Controllers */
+const Auth = require('../../controllers/Auth')
 const User = require('../../controllers/User')
 
-const { signup } = User
+/* Validator */
+const { userValidationRules, validate } = require('../middlewares/validator')
+
+
+const { signup } = Auth
+const { getAllUsers } = User
 
 module.exports = (app) => {
     
     app.use('/users', app)
     
     app.get('/test', (req, res) => res.send('Working Route'))
-    app.post('/signup', User.signup)
+
+    // Authentication
+    app.post('/signup', userValidationRules(), validate, signup)
+
+    // Users
+    app.get('/', getAllUsers)
 }
 
 
