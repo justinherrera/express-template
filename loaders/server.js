@@ -3,7 +3,7 @@ const cors = require('cors')
 const express = require('express')
 const config = require('../config')
 const routes = require('../api')
-const error = require('../controllers/Error')
+const error = require('controllers/Error')
 
 module.exports = (app) => {
 

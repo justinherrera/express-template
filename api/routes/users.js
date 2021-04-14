@@ -1,6 +1,6 @@
 /* Controllers */
-const Auth = require('../../controllers/Auth')
-const User = require('../../controllers/User')
+const Auth = require('controllers/Auth')
+const User = require('controllers/User')
 
 /* Validator */
 const { userValidationRules, validate } = require('../middlewares/validator')

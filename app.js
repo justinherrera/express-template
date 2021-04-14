@@ -1,3 +1,4 @@
+require('module-alias/register')
 const loaders = require('./loaders');
 const config = require('./config');
 

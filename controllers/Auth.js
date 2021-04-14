@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 
-const User = require('../models/User')
-const handle = require('../api/middlewares/handle')
+const User = require('models/User')
+const handle = require('middlewares/handle')
 
 module.exports = {
     signup: handle(async (req, res) => {
