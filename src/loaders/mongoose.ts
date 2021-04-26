@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const config = require('../config')
+import mongoose from 'mongoose'
+import config from '../config'
 
-module.exports =  async () => {
+const connection = async () => {
     return await mongoose.connect(config.databaseURL, {
         useNewUrlParser: true,
         useFindAndModify: false,
@@ -11,3 +11,5 @@ module.exports =  async () => {
     .catch(_ => console.log('Connection Failed'))
     //   return connection.connection.db;
 }
+
+export default connection

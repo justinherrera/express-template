@@ -1,7 +1,17 @@
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt');
+import mongoose, { Schema, Document } from 'mongoose'
+import bcrypt from 'bcrypt'
 
-const User = new mongoose.Schema({
+import { NextFunction } from "express"
+
+export interface UserInterface extends Document {
+    name: string;
+    email: string;
+    password: string;
+    passwordConfirm: string;
+    active: boolean;
+}
+
+const User: Schema = new mongoose.Schema({
     name: {
         type: String,
     },
@@ -22,9 +32,7 @@ const User = new mongoose.Schema({
         select: false
     }
 })
-
-
-User.pre("save", async function (next) {
+.pre<UserInterface>("save", async function (next: NextFunction) {
 
     if (!this.isModified("password")) return next();
   
@@ -34,5 +42,4 @@ User.pre("save", async function (next) {
     next();
 });
   
-
-module.exports = mongoose.model('User', User)
+export default mongoose.model<UserInterface>('User', User)

@@ -5,7 +5,7 @@ if (env.error) {
   throw new Error("Cannot find .env file");
 }
 
-module.exports = {
+export default {
   port: process.env.PORT || 3000,
   databaseURL: process.env.DATABASE_URI,
   paypal: {

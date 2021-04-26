@@ -1,11 +1,12 @@
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const express = require('express')
-const config = require('../config')
-const routes = require('../api')
-const error = require('controllers/Error')
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import config from '../config'
+import routes from '../api'
+import error from 'controllers/Error'
 
-module.exports = (app) => {
+import express, { Application } from 'express'
+
+const server = (app: Application) => {
 
   app.get('/status', (req, res) => { res.status(200).end(); });
   app.head('/status', (req, res) => { res.status(200).end(); });
@@ -27,3 +28,5 @@ module.exports = (app) => {
   // Return the express app
   return app;
 }
+
+export default server
