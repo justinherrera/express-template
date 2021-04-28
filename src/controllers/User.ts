@@ -1,12 +1,11 @@
-import handle from 'middlewares/handle'
-import User from 'models/User'
+import handle from '.././api/middlewares/handle.js'
+import User from '../models/User.js'
 
 import { Request, Response } from "express"
 
-module.exports = {
-    getAllUsers: handle(async (req: Request, res: Response) => {
+
+export const getAllUsers = handle(async (req: Request, res: Response): Promise<any> => {
         const users = await User.find({})
 
         res.json({ users })
     })
-}

@@ -1,10 +1,15 @@
 import { body, validationResult, CustomValidator } from 'express-validator'
-import User from 'models/User'
+import User from '../../models/User.js'
 
 import { Request, Response, NextFunction } from "express"
 
 type Errors = {
     [key: string]: string
+}
+
+interface err {
+    param: string;
+    msg: string;
 }
 
 interface UserDocument {
@@ -58,7 +63,7 @@ export const userValidationRules = () => {
             // passwords must match && must provided
             body('passwordConfirm').custom(matchPassword)
           ]
-    },
+    }
 
 export const validate = (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)
@@ -68,11 +73,11 @@ export const validate = (req: Request, res: Response, next: NextFunction) => {
         }
 
         const extractedErrors: Errors[] = []
-        errors.array().map(err => extractedErrors.push({ [err.param]: err.msg }))
+        errors.array().map((err: err) => extractedErrors.push({ [err.param]: err.msg }))
       
         return res.status(422).json({
           success: "false",
           errors: extractedErrors,
         })
     }
-}
+

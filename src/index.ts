@@ -1,6 +1,13 @@
-require('module-alias/register')
-import loaders from '../src/loaders'
-import config from '../src/config'
+// require('module-alias/register')
+import moduleAlias from 'module-alias'
+
+// moduleAlias.addAliases({
+//   "@controllers": `${__dirname}/dist/src/controllers`,
+//   "@models": `${__dirname}/dist/src/models`,
+// });
+
+import loaders from './loaders/index.js'
+import config from './config/index.js'
 
 import express, { Application } from 'express'
 

@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 
 import { NextFunction } from "express"
 
-export interface UserInterface extends Document {
+interface UserInterface extends Document {
     name: string;
     email: string;
     password: string;

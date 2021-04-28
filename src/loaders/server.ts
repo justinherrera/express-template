@@ -1,8 +1,9 @@
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import config from '../config'
-import routes from '../api'
-import error from 'controllers/Error'
+import config from '../config/index.js'
+import routes from '../api/index.js'
+import error from '../controllers/Error.js'
+import morgan from 'morgan'
 
 import express, { Application } from 'express'
 
@@ -13,12 +14,12 @@ const server = (app: Application) => {
   app.enable('trust proxy');
 
   app.use(cors());
-  app.use(require('morgan')('dev'));
+  app.use(morgan('dev'));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }))
 
   // API Routes
-  app.use(config.prefix.api, routes())
+  app.use(config.prefix.api, routes)
 
   // Error Controller
   app.use(error);

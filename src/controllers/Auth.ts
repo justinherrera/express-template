@@ -1,11 +1,12 @@
-const User = require('models/User')
-const handle = require('middlewares/handle')
+import User from '../models/User.js'
+import handle from '.././api/middlewares/handle.js'
+
 import { Request, Response, NextFunction } from "express"
 
-module.exports = {
-    signup: handle(async (req: Request, res: Response) => {
+
+
+export const signup =  handle(async (req: Request, res: Response): Promise<any> => {
         const user = await User.create(req.body)
 
         res.json({ user })
     })
-}

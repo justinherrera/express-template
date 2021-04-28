@@ -1,20 +1,25 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "ESNext",
         "esModuleInterop": true,
-        "target": "es6",
+        "target": "ES2017",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "dist",
-        "baseUrl": ".",
+        "outDir": "dist/src",
+        "baseUrl": "src",
         "paths": {
             "*": [
                 "node_modules/*"
-            ]
+            ],
+            "@controllers/*": ["controllers/*"],
+            "models/*": ["models/*"],
+            "middlewares/*": ["api/middlewares/*"]
         }
     },
     "include": [
-        "src/**/*"
-    ]
+        "src/**/*" // will only compile inside src folder
+    ],
+    "exclude": ["node_modules", "dist"]
+    
 }

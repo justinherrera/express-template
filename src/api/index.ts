@@ -1,9 +1,9 @@
-import users from './routes/users'
+import users from './routes/users.js'
 
-import express from "express"
+import { Router } from "express"
 
 
-const router = express.Router()
+const router = Router()
 
 users(router)
 // routes here ...

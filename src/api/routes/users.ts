@@ -1,15 +1,12 @@
 /* Controllers */
-import Auth from 'controllers/Auth'
-import User from 'controllers/User'
+import { signup } from '../../controllers/Auth.js'
+import { getAllUsers } from '../../controllers/User.js'
 
 /* Validator */
-import { userValidationRules, validate } from '../middlewares/validator'
+import { userValidationRules, validate } from '../middlewares/validator.js'
 
 import { Request, Response, Router } from "express"
 
-
-const { signup } = Auth
-const { getAllUsers } = User
 
 export default (app: Router) => {
     
