@@ -1,10 +1,11 @@
 // require('module-alias/register')
 import moduleAlias from 'module-alias'
 
-// moduleAlias.addAliases({
-//   "@controllers": `${__dirname}/dist/src/controllers`,
-//   "@models": `${__dirname}/dist/src/models`,
-// });
+moduleAlias.addAliases({
+  "controllers": `${__dirname}/src/controllers`,
+  "models": `${__dirname}/src/models`,
+  "middlewares": `${__dirname}/src/api/middlewares`
+});
 
 import loaders from './loaders/index.js'
 import config from './config/index.js'

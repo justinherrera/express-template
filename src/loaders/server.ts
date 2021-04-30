@@ -2,7 +2,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import config from '../config/index.js'
 import routes from '../api/index.js'
-import error from '../controllers/Error.js'
+import error from 'controllers/Error.js'
 import morgan from 'morgan'
 
 import express, { Application } from 'express'

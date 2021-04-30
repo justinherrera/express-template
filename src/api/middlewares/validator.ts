@@ -1,5 +1,5 @@
 import { body, validationResult, CustomValidator } from 'express-validator'
-import User from '../../models/User.js'
+import User from 'models/User.js'
 
 import { Request, Response, NextFunction } from "express"
 

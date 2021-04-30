@@ -1,24 +1,26 @@
 /* Controllers */
-import { signup } from '../../controllers/Auth.js'
-import { getAllUsers } from '../../controllers/User.js'
+import * as Auth from 'controllers/Auth.js'
+import * as User from 'controllers/User.js'
 
 /* Validator */
-import { userValidationRules, validate } from '../middlewares/validator.js'
+import * as Validator from '../middlewares/validator.js'
 
-import { Request, Response, Router } from "express"
+import { Router } from "express"
 
+const { getAllUsers } = User
+const { signup } = Auth
+const { userValidationRules, validate } = Validator
 
-export default (app: Router) => {
+export default (router: Router) => {
     
-    app.use('/users', app)
-    
-    app.get('/test', (req: Request, res: Response) => res.send('Working Route'))
+    // app.use('/users', app)
 
     // Authentication
-    app.post('/signup', userValidationRules(), validate, signup)
+    router.post('/signup', userValidationRules(), validate, signup)
 
     // Users
-    app.get('/', getAllUsers)
+    router.route('/users')
+        .get(getAllUsers)
 }
 
 

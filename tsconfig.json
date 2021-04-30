@@ -12,7 +12,7 @@
             "*": [
                 "node_modules/*"
             ],
-            "@controllers/*": ["controllers/*"],
+            "controllers/*": ["controllers/*"],
             "models/*": ["models/*"],
             "middlewares/*": ["api/middlewares/*"]
         }

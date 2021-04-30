@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./dist/src/index.js",
-    "dev": "nodemon --watch src -e ts",
-    "build": "tsc",
+    "dev": "nodemon src/app.ts",
+    "build": "tsc -p .",
     "prestart": "npm run build",
     "test": "jest --watchAll"
   },

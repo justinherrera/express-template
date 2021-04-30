@@ -1,5 +1,5 @@
-import User from '../models/User.js'
-import handle from '.././api/middlewares/handle.js'
+import User from 'models/User.js'
+import handle from 'middlewares/handle.js'
 
 import { Request, Response, NextFunction } from "express"
 
