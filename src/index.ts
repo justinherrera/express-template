@@ -2,18 +2,19 @@
 import moduleAlias from 'module-alias'
 
 moduleAlias.addAliases({
-  "controllers": `${__dirname}/src/controllers`,
-  "models": `${__dirname}/src/models`,
-  "middlewares": `${__dirname}/src/api/middlewares`
+  "controllers": `${__dirname}/controllers/`,
+  "models": `${__dirname}/models`,
+  "middlewares": `${__dirname}/api/middlewares`
 });
 
-import loaders from './loaders/index.js'
-import config from './config/index.js'
+
+import loaders from './loaders/index'
+import config from './config/index'
 
 import express, { Application } from 'express'
 
 // only export when running tests
-const startServer = (): void => {
+const startServer = () => {
 
   const app: Application = express();
 
@@ -22,6 +23,7 @@ const startServer = (): void => {
   app.listen(config.port, () => {
     console.log(`Server Running at ${config.port}`);
   });
+
 }
 
 startServer()

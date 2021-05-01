@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "ESNext",
+        "module": "commonjs",
         "esModuleInterop": true,
-        "target": "ES2017",
+        "target": "es6",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,
@@ -16,6 +16,9 @@
             "models/*": ["models/*"],
             "middlewares/*": ["api/middlewares/*"]
         }
+    },
+    "ts-node": {
+        "transpileOnly": true
     },
     "include": [
         "src/**/*" // will only compile inside src folder

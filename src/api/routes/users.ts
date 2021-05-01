@@ -1,14 +1,12 @@
 /* Controllers */
-import * as Auth from 'controllers/Auth.js'
-import * as User from 'controllers/User.js'
+import * as Auth from 'controllers/Auth'
+import * as User from 'controllers/User'
 
 /* Validator */
-import * as Validator from '../middlewares/validator.js'
+import * as Validator from '../middlewares/validator'
 
 import { Router } from "express"
 
-const { getAllUsers } = User
-const { signup } = Auth
 const { userValidationRules, validate } = Validator
 
 export default (router: Router) => {
@@ -16,11 +14,11 @@ export default (router: Router) => {
     // app.use('/users', app)
 
     // Authentication
-    router.post('/signup', userValidationRules(), validate, signup)
+    router.post('/signup', userValidationRules(), validate, Auth.signup)
 
-    // Users
+    /* USERS ROUTE */
     router.route('/users')
-        .get(getAllUsers)
+        .get(User.getAllUsers)
 }
 
 

@@ -1,8 +1,8 @@
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import config from '../config/index.js'
-import routes from '../api/index.js'
-import error from 'controllers/Error.js'
+import config from '../config/index'
+import routes from '../api/index'
+import error from 'controllers/Error'
 import morgan from 'morgan'
 
 import express, { Application } from 'express'

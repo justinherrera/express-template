@@ -1,4 +1,4 @@
-import users from './routes/users.js'
+import users from './routes/users'
 
 import { Router } from "express"
 

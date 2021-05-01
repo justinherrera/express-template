@@ -1,5 +1,5 @@
-import server from './server.js'
-import connection from './mongoose.js'
+import server from './server'
+import connection from './mongoose'
 
 
 import { Application } from 'express'

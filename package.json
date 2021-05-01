@@ -1,12 +1,11 @@
 {
   "name": "backend-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/src/index.js",
-  "type": "module",
+  "description": "Express TypeScript Template",
+  "main": "./dist/src/index.js",
   "scripts": {
     "start": "node ./dist/src/index.js",
-    "dev": "nodemon src/app.ts",
+    "dev": "tsnd --respawn ./src/index.ts",
     "build": "tsc -p .",
     "prestart": "npm run build",
     "test": "jest --watchAll"
@@ -15,14 +14,16 @@
     "testEnvironment": "node",
     "testTimeout": 10000
   },
+  "type": "module",
   "keywords": [],
-  "author": "",
+  "author": "Justin Mohses Herrera",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
     "module-alias": "^2.2.2",

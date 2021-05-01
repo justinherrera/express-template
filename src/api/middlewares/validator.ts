@@ -1,5 +1,5 @@
 import { body, validationResult, CustomValidator } from 'express-validator'
-import User from 'models/User.js'
+import User from 'models/User'
 
 import { Request, Response, NextFunction } from "express"
 
@@ -38,7 +38,7 @@ const matchPassword: CustomValidator = (value: string | undefined, { req }) => {
 }
 
 const isEmailExists: CustomValidator = async (value: string) => {
-    await User.findOne({ email: value }).then((user: UserDocument) => {
+    await User.findOne({ email: value }).then((user: UserDocument): Promise<string> => {
         if (user) return Promise.reject('Email is already in use')
     })
 }
