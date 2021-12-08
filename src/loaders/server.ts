@@ -2,7 +2,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import config from '../config/index'
 import routes from '../api/index'
-import { Logs } from 'utils/LogError'
+import { LogError } from 'utils/LogError'
 import error from 'controllers/Error'
 import morgan from 'morgan'
 
@@ -23,9 +23,8 @@ const server = (app: Application) => {
   app.use(config.prefix.api, routes)
 
   // Invalid Route
-  const globalError: Logs.LogError = new Logs.LogError()
   app.all('*', (req, res, next) => {
-    next(globalError.error(`Cant find route on this server`, 400))
+    next(new LogError(`Cant find route on this server`, 400))
   })
 
   // Error Controller
