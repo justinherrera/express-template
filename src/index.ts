@@ -4,6 +4,7 @@ import moduleAlias from 'module-alias'
 moduleAlias.addAliases({
   "controllers": `${__dirname}/controllers/`,
   "models": `${__dirname}/models`,
+  "utils": `${__dirname}/utils`,
   "middlewares": `${__dirname}/api/middlewares`
 });
 

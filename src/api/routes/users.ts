@@ -3,7 +3,7 @@ import * as Auth from 'controllers/Auth'
 import * as User from 'controllers/User'
 
 /* Validator */
-import * as Validator from '../middlewares/validator'
+import * as Validator from 'middlewares/validator'
 
 import { Router } from "express"
 
@@ -14,11 +14,10 @@ export default (router: Router) => {
     // app.use('/users', app)
 
     // Authentication
-    router.post('/signup', userValidationRules(), validate, Auth.signup)
+    router.post('/users/signup', userValidationRules(), validate, Auth.signup)
 
     /* USERS ROUTE */
-    router.route('/users')
-        .get(User.getAllUsers)
+    router.get('/users', User.getAllUsers)
 }
 
 
